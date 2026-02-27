@@ -207,7 +207,7 @@ const Index = () => {
               </div>
 
               <h1 className="text-5xl sm:text-7xl lg:text-8xl leading-none mb-6 text-primary">
-                Believe In<br />The Invisible
+                Believe <br></br>In The Invisible
               </h1>
 
               <p className="text-xl sm:text-2xl mb-4 text-charcoal-foreground/90 max-w-xl leading-relaxed">

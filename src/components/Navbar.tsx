@@ -6,7 +6,7 @@ import bitiLogo from "/bitilogo.jpg";
 const navLinks = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
-  { label: "Our Work", path: "/work" },
+  { label: "Work", path: "/work" },
   { label: "Events", path: "/events" },
   { label: "Achievements", path: "/achievements" },
   { label: "Resources", path: "/resources" },
@@ -35,18 +35,15 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`sticky top-0 z-50 text-charcoal-foreground transition-all duration-300 ${
-          scrolled
-            ? "bg-charcoal/95 backdrop-blur-md shadow-lg shadow-black/20"
-            : "bg-charcoal"
-        }`}
+        className={`sticky top-0 z-50 transition-all duration-300 bg-white text-black shadow-sm
+        ${scrolled ? "shadow-md" : ""}`}
       >
-        <div className="container-section flex items-center justify-between h-20">
+        <div className="w-full flex items-center justify-between h-20 px-4 sm:px-6 lg:px-10">
 
           {/* ── LOGO ── */}
           <Link
             to="/"
-            className="flex items-center gap-3 group flex-shrink-0"
+            className="flex items-center gap-3 group flex-shrink-0 -ml-2 sm:-ml-3"
           >
             <div className="relative w-12 h-12 rounded-xl overflow-hidden ring-2 ring-primary/30 group-hover:ring-primary/70 transition-all duration-300 group-hover:scale-105">
               <img
@@ -59,14 +56,14 @@ const Navbar = () => {
               {/* <span className="font-display text-sm tracking-[0.2em] text-primary">
                 BITI
               </span> */}
-              <span className="font-display text-xs tracking-widest text-charcoal-foreground/60 uppercase">
+              <span className="font-display text-xs tracking-widest text-black/60 uppercase">
                 Believe In The Invisible
               </span>
             </div>
           </Link>
 
           {/* ── DESKTOP NAV ── */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1 pl-12">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
               const isDonate = link.label === "Donate";
@@ -90,7 +87,7 @@ const Navbar = () => {
                   className={`relative px-3 py-2 text-base font-display tracking-wide transition-colors duration-200 group ${
                     isActive
                       ? "text-primary"
-                      : "text-charcoal-foreground/70 hover:text-charcoal-foreground"
+                      : "text-black/70 hover:text-black"
                   }`}
                 >
                   {link.label}
@@ -109,7 +106,7 @@ const Navbar = () => {
 
           {/* ── MOBILE HAMBURGER ── */}
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-charcoal-foreground/10 transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-black/10 transition-colors text-black"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
@@ -125,11 +122,11 @@ const Navbar = () => {
 
         {/* ── MOBILE MENU ── */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white border-t border-black/10 ${
             open ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="border-t border-charcoal-foreground/10 py-2">
+          <div className="py-2">
             {navLinks.map((link, i) => {
               const isActive = location.pathname === link.path;
               const isDonate = link.label === "Donate";
@@ -143,7 +140,7 @@ const Navbar = () => {
                       ? "text-primary font-semibold"
                       : isActive
                       ? "text-primary bg-primary/5"
-                      : "text-charcoal-foreground/80 hover:text-charcoal-foreground hover:bg-charcoal-foreground/5"
+                      : "text-black/80 hover:text-black hover:bg-black/5"
                   }`}
                   style={{ transitionDelay: open ? `${i * 30}ms` : "0ms" }}
                 >

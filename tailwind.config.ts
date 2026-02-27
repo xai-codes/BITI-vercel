@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Anton", "sans-serif"],
-        body: ["Fjalla One", "sans-serif"],
+        display: ["Lexend", "sans-serif"],
+        body: ["Lexend", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
