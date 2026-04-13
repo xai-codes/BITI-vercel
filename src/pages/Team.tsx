@@ -1,3 +1,6 @@
+import { ArrowRight, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
+
 const Team = () => {
   const members = [
     {
@@ -6,7 +9,6 @@ const Team = () => {
       bio: "Anjali Vyas, a Chemical Engineer turned IELTS Trainer and Disability Rights advocate, co-founded Believe in the Invisible. Diagnosed with MS in 2014, Anjali advocates for affordable treatment and research. Her efforts led to a National MS Registry by ICMR in 2022. She serves as the Honorary Joint Secretary of MS Society of India, Pune Chapter, and is an alumnus of a leadership program of the U.S. Department of State.",
       quote: "The world operates on a 'what you see' mentality, but what is excluded is a whole spectrum of experiences.",
       color: "yellow" as const,
-      imageFirst: true,
       image: "/team/anjali.png",
     },
     {
@@ -15,7 +17,6 @@ const Team = () => {
       bio: "Aarti Batra is a young woman with Thalassemia Major, currently enrolled in a PhD program at the University of Delhi studying memoirs of women with chronic illnesses. She has been working in the disability sector through the Javed-Abidi Fellowship Program and has been a Research consultant with clients like The World Bank.",
       quote: "Disability and Illness Narratives extend beyond the walls of clinics and hospitals. They travel with us everywhere.",
       color: "purple" as const,
-      imageFirst: false,
       image: "/team/aarti.png",
     },
     {
@@ -24,7 +25,6 @@ const Team = () => {
       bio: "Shashank, a former Research Fellow at Vidhi, specializes in legal and policy matters concerning climate and environment. As a Javed Abidi Fellow at NCPEDP, he focused on inclusivity and accessibility issues, particularly political exclusion of disabled individuals. He holds a BA LLB from Dr. Ram Manohar Lohia National Law University.",
       quote: "Disability as a concept needs broadened understanding among people around us.",
       color: "yellow" as const,
-      imageFirst: true,
       image: "/team/pandey.png",
     },
   ];
@@ -35,48 +35,104 @@ const Team = () => {
   };
 
   return (
-    <div>
-      <section className="section-charcoal py-24">
-        <div className="container-section text-center">
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl mb-6 text-primary">Our Team</h1>
-          <p className="text-xl sm:text-2xl opacity-80">The people behind the movement</p>
+    <div className="bg-background">
+      {/* Hero */}
+      <section className="relative overflow-hidden section-charcoal border-b border-border/20">
+        <div className="pointer-events-none absolute inset-0" aria-hidden>
+          <div className="absolute -top-40 -left-40 h-96 w-96 sm:h-[28rem] sm:w-[28rem] rounded-full bg-primary/25 blur-3xl" />
+          <div className="absolute top-8 -right-48 h-[26rem] w-[26rem] sm:h-[32rem] sm:w-[32rem] rounded-full bg-secondary/25 blur-3xl" />
+          <div className="absolute inset-0 opacity-[0.10] [background-image:radial-gradient(rgba(255,255,255,0.55)_2px,transparent_2px)] [background-size:30px_30px]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.25),transparent_45%,rgba(0,0,0,0.25))]" />
+        </div>
+
+        <div className="container-section relative z-10 py-20 md:py-24">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/35 bg-white/5 px-4 py-2 backdrop-blur-sm">
+              <Sparkles className="h-4 w-4 text-primary" aria-hidden />
+              <span className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase drop-shadow-[0_1px_0_rgba(0,0,0,0.35)]">
+                Our team
+              </span>
+            </div>
+            <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-charcoal-foreground font-bold tracking-tight">
+              The people behind the movement
+            </h1>
+            <p className="mt-5 text-lg sm:text-xl text-charcoal-foreground/85 leading-relaxed">
+              Women-led, lived-experience driven, and committed to systemic inclusion—meet the team building BITI.
+            </p>
+            <div className="mt-9 flex flex-col sm:flex-row gap-3">
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-7 py-4 rounded-xl font-display text-base font-semibold tracking-wide hover:opacity-90 transition-opacity shadow-lg shadow-primary/20"
+              >
+                Contact us <ArrowRight size={18} />
+              </Link>
+              <Link
+                to="/donate"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 text-charcoal-foreground px-7 py-4 font-display text-base font-semibold tracking-wide hover:bg-white/10 transition-colors"
+              >
+                Support the mission <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      {members.map((member) => (
-        <section key={member.name} className={`${colorClasses[member.color]} py-20`}>
-          <div className="container-section">
-            <div
-              className={`flex flex-col ${
-                member.imageFirst ? "md:flex-row" : "md:flex-row-reverse"
-              } items-stretch gap-12 max-w-6xl mx-auto`}
-            >
-              {/* Large square image placeholder */}
-              <div className="w-full md:w-[480px] flex-shrink-0">
-                <div className="aspect-square bg-background/30 rounded-lg overflow-hidden border-2 border-charcoal/10">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-              </div>
+      {/* Members */}
+      <section className="py-16 md:py-20">
+        <div className="container-section">
+          <div className="space-y-14 md:space-y-18 max-w-7xl mx-auto">
+            {members.map((member, idx) => {
+              const imageLeft = idx % 2 === 0;
+              const sectionBg = member.color === "yellow" ? "bg-primary/10" : "bg-secondary/15";
 
-              {/* Text content */}
-              <div className="flex flex-col justify-center flex-1">
-                <h2 className="text-4xl sm:text-5xl mb-3">{member.name}</h2>
-                <p className="text-base sm:text-lg font-display tracking-wide opacity-70 mb-8 normal-case">
-                  {member.role}
-                </p>
-                <p className="text-base sm:text-lg leading-relaxed mb-8">{member.bio}</p>
-                <blockquote className="italic text-base sm:text-lg opacity-80 border-l-4 border-charcoal/30 pl-6">
-                  "{member.quote}"
-                </blockquote>
-              </div>
-            </div>
+              return (
+                <div
+                  key={member.name}
+                  className={`relative overflow-hidden rounded-3xl border border-border/70 ${sectionBg} p-7 sm:p-10 md:p-12`}
+                >
+                  <div className="pointer-events-none absolute inset-0 opacity-60" aria-hidden>
+                    <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-white/25 blur-3xl" />
+                    <div className="absolute -bottom-28 -left-28 h-72 w-72 rounded-full bg-white/20 blur-3xl" />
+                    <div className="absolute inset-0 opacity-[0.09] [background-image:radial-gradient(rgba(0,0,0,0.55)_2px,transparent_2px)] [background-size:28px_28px]" />
+                  </div>
+
+                  <div
+                    className={`relative grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start ${
+                      imageLeft ? "" : ""
+                    }`}
+                  >
+                    <div className={`md:col-span-4 ${imageLeft ? "md:order-1" : "md:order-2"}`}>
+                      <div className="rounded-2xl overflow-hidden border border-border/70 bg-background/40 shadow-[0_16px_32px_rgba(0,0,0,0.12),0_4px_0_rgba(0,0,0,0.12)]">
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-auto object-contain p-1 sm:p-2 hover:scale-[1.01] transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+
+                    <div className={`md:col-span-8 ${imageLeft ? "md:order-2" : "md:order-1"}`}>
+                      <h2 className="text-3xl sm:text-4xl md:text-5xl text-foreground font-bold tracking-tight drop-shadow-[0_2px_0_rgba(0,0,0,0.18)]">
+                        {member.name}
+                      </h2>
+                      <p className="mt-3 text-sm sm:text-base font-display tracking-[0.14em] uppercase text-foreground/70">
+                        {member.role}
+                      </p>
+
+                      <p className="mt-6 text-base sm:text-lg text-foreground/85 leading-relaxed">{member.bio}</p>
+
+                      <blockquote className="mt-8 rounded-2xl border border-border/70 bg-background/60 p-6 shadow-[0_10px_18px_rgba(0,0,0,0.08),0_3px_0_rgba(0,0,0,0.08)]">
+                        <p className="text-foreground/85 italic text-base sm:text-lg leading-relaxed">“{member.quote}”</p>
+                      </blockquote>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-        </section>
-      ))}
+        </div>
+      </section>
     </div>
   );
 };

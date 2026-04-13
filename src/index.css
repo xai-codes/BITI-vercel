@@ -60,13 +60,11 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body;
+    @apply bg-background text-foreground font-body font-medium;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Anton', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
+    @apply font-display font-semibold tracking-tight;
   }
 }
 
