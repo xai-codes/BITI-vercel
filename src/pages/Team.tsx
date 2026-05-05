@@ -6,7 +6,7 @@ const Team = () => {
     {
       name: "Anjali Vyas",
       role: "Co-Founder, Advocacy and Sensitisation Lead",
-      bio: "Anjali Vyas, a Chemical Engineer turned IELTS Trainer and Disability Rights advocate, co-founded Believe in the Invisible. Diagnosed with MS in 2014, Anjali advocates for affordable treatment and research. Her efforts led to a National MS Registry by ICMR in 2022. She serves as the Honorary Joint Secretary of MS Society of India, Pune Chapter, and is an alumnus of a leadership program of the U.S. Department of State.",
+      bio: "Anjali Vyas is a disability rights advocate and social entrepreneur with over a decade of experience in advocacy, policy, and education. As a person living with Multiple Sclerosis, she brings both professional expertise and firsthand perspective to her work on invisible disabilities. She has played an active role in shaping advocacy through her work with the Multiple Sclerosis Society of India, including efforts that supported the launch of India’s National Registry on MS, while also advancing awareness and inclusion through training, storytelling, and community-led initiatives. Anjali holds fellowships from NCPEDP's Javed Abidi Fellowship on Disability and the U.S. Department of State's International Visitor Leadership Program (IVLP). She has contributed to national disability policy including the PM Daksh portal and led the development of India's first accessible IELTS curriculum for persons with disabilities under the Ministry of Social Justice & Empowerment.",
       quote: "The world operates on a 'what you see' mentality, but what is excluded is a whole spectrum of experiences.",
       color: "yellow" as const,
       image: "/team/anjali.png",
@@ -14,7 +14,7 @@ const Team = () => {
     {
       name: "Aarti Batra",
       role: "Co-Founder, Research and Programming Lead",
-      bio: "Aarti Batra is a young woman with Thalassemia Major, currently enrolled in a PhD program at the University of Delhi studying memoirs of women with chronic illnesses. She has been working in the disability sector through the Javed-Abidi Fellowship Program and has been a Research consultant with clients like The World Bank.",
+      bio: "Aarti Batra is a researcher, disability advocate, and co-Founder of Believe in the Invisible (BITI), working at the intersection of disability studies, health humanities, and public policy, with a focus on invisible disabilities and chronic illness. A PhD scholar at the University of Delhi, her research explores illness narratives, epistemic justice, and storytelling as a tool for knowledge-building and change. Alongside her academic work, she has experience in disability inclusion, public health, and community-based advocacy. At BITI, Aarti leads on research, knowledge-building, and program design. Her work emphasises participatory and arts-based approaches, creating spaces where people with invisible disabilities can articulate their experiences on their own terms.",
       quote: "Disability and Illness Narratives extend beyond the walls of clinics and hospitals. They travel with us everywhere.",
       color: "purple" as const,
       image: "/team/aarti.png",
@@ -22,7 +22,7 @@ const Team = () => {
     {
       name: "Shashank Pandey",
       role: "Legal and Policy Advisor",
-      bio: "Shashank, a former Research Fellow at Vidhi, specializes in legal and policy matters concerning climate and environment. As a Javed Abidi Fellow at NCPEDP, he focused on inclusivity and accessibility issues, particularly political exclusion of disabled individuals. He holds a BA LLB from Dr. Ram Manohar Lohia National Law University.",
+      bio: "A lawyer and disability rights advocate, Shashank works to strengthen political participation of persons with disabilities. He has collaborated with ECI, Vidhi Centre for Legal Policy, Lok Sabha Secretariat, and has represented India in international dialogues, including the IFES Kathmandu Declaration.",
       quote: "Disability as a concept needs broadened understanding among people around us.",
       color: "yellow" as const,
       image: "/team/pandey.png",
@@ -57,7 +57,7 @@ const Team = () => {
               The people behind the movement
             </h1>
             <p className="mt-5 text-lg sm:text-xl text-charcoal-foreground/85 leading-relaxed">
-              Women-led, lived-experience driven, and committed to systemic inclusion—meet the team building BITI.
+              Women-led, lived-experience driven, and committed to systemic inclusion meet the team building BITI.
             </p>
             <div className="mt-9 flex flex-col sm:flex-row gap-3">
               <Link

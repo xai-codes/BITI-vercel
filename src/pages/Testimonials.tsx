@@ -26,7 +26,7 @@ const Testimonials = () => {
               Testimonials from the leaders
             </h1>
             <p className="mt-5 text-lg sm:text-xl text-charcoal-foreground/85 leading-relaxed">
-              Endorsements that strengthen credibility—and widen the circle of belief for invisible disability.
+              Endorsements that strengthen credibility and widen the circle of belief for invisible disability.
             </p>
 
             <div className="mt-9 flex flex-col sm:flex-row gap-3">

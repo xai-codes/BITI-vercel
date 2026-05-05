@@ -10,7 +10,6 @@ import {
   Users,
 } from "lucide-react";
 import { DonateHeartLoader } from "@/components/DonateHeartLoader";
-import heroBg from "@/assets/hero-bg.jpeg";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const ScrollReveal = ({
@@ -44,7 +43,10 @@ const Index = () => {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroBg} alt="" className="w-full h-full object-cover" />
+          <picture>
+            <source media="(max-width: 640px)" srcSet="/home/hero-bg-mobile.png" />
+            <img src="/home/hero-bg-desktop.png" alt="" className="w-full h-full object-cover" />
+          </picture>
           <div className="absolute inset-0 bg-charcoal/70" />
           <div className="absolute inset-0 bg-gradient-to-br from-charcoal/85 via-charcoal/55 to-primary/25" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(255,255,255,0.14),transparent_45%),radial-gradient(circle_at_80%_30%,rgba(255,215,64,0.25),transparent_45%)]" />
@@ -110,15 +112,26 @@ const Index = () => {
                     </div>
                     <div className="flex gap-3 items-start">
                       <Mail className="w-5 h-5 shrink-0 mt-0.5 text-primary" aria-hidden />
-                      <p>
-                        <span className="text-charcoal-foreground font-semibold">Email</span>{" "}
-                        <a
-                          href="mailto:ho@believeintheinvisible.org"
-                          className="underline decoration-primary/50 underline-offset-4 hover:text-primary transition-colors break-all"
-                        >
-                          ho@believeintheinvisible.org
-                        </a>
-                      </p>
+                      <div className="space-y-1">
+                        <p>
+                          <span className="text-charcoal-foreground font-semibold">Office:</span>{" "}
+                          <a
+                            href="mailto:ho@believeintheinvisible.org"
+                            className="underline decoration-primary/50 underline-offset-4 hover:text-primary transition-colors break-all"
+                          >
+                            ho@believeintheinvisible.org
+                          </a>
+                        </p>
+                        <p>
+                          <span className="text-charcoal-foreground font-semibold">Queries:</span>{" "}
+                          <a
+                            href="mailto:connect@believeintheinvisible.org"
+                            className="underline decoration-primary/50 underline-offset-4 hover:text-primary transition-colors break-all"
+                          >
+                            connect@believeintheinvisible.org
+                          </a>
+                        </p>
+                      </div>
                     </div>
                   </div>
 
@@ -263,7 +276,7 @@ const Index = () => {
       <section className="py-20 md:py-28 bg-background">
         <div className="container-section">
           <ScrollReveal>
-            <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-gradient-to-br from-primary/20 via-background to-secondary/25 p-10 sm:p-12">
+            <div className="relative overflow-hidden rounded-3xl border-2 border-blue-950/45 shadow-[0_1px_0_0_rgba(23,37,84,0.12),0_8px_24px_-4px_rgba(23,37,84,0.12)] bg-gradient-to-br from-primary/20 via-background to-secondary/25 p-10 sm:p-12">
               <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-primary/30 blur-3xl" aria-hidden />
               <div className="absolute -bottom-28 -left-28 h-72 w-72 rounded-full bg-secondary/35 blur-3xl" aria-hidden />
 
@@ -271,7 +284,7 @@ const Index = () => {
                 <div className="lg:col-span-8">
                   <h2 className="text-3xl sm:text-4xl md:text-5xl text-foreground mb-5">Help someone feel believed.</h2>
                   <p className="text-foreground/85 text-lg leading-relaxed max-w-2xl">
-                    Whether you donate, share your story, or partner with us—your action helps move invisible disability from doubt to dignity.
+                    Whether you donate, share your story, or partner with us your action helps move invisible disability from doubt to dignity.
                   </p>
                 </div>
                 <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-stretch">

@@ -1,3 +1,5 @@
+import { Sparkles } from "lucide-react";
+
 const Achievements = () => {
   return (
     <div className="bg-background">
@@ -12,9 +14,12 @@ const Achievements = () => {
 
         <div className="container-section relative z-10 py-20 md:py-24">
           <div className="max-w-4xl">
-            <p className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase drop-shadow-[0_1px_0_rgba(0,0,0,0.35)]">
-              Our Achievements
-            </p>
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/35 bg-white/5 px-4 py-2 backdrop-blur-sm">
+              <Sparkles className="h-4 w-4 text-primary" aria-hidden />
+              <span className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase drop-shadow-[0_1px_0_rgba(0,0,0,0.35)]">
+                Our Achievements
+              </span>
+            </div>
             <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-charcoal-foreground font-bold tracking-tight">
               Milestones of impact
             </h1>
@@ -31,7 +36,9 @@ const Achievements = () => {
           <div className="space-y-8">
             {/* 1 */}
             <article className="rounded-3xl border border-border/70 bg-card p-7 sm:p-9 shadow-sm">
-              <p className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase mb-3">01</p>
+              <p className="text-blue-950 font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight tabular-nums leading-none mb-4">
+                01
+              </p>
               <h2 className="text-2xl sm:text-3xl text-foreground font-bold tracking-tight">
                 Accessible IELTS Training for Persons with Disabilities
               </h2>
@@ -54,7 +61,9 @@ const Achievements = () => {
 
             {/* 2 */}
             <article className="rounded-3xl border border-border/70 bg-card p-7 sm:p-9 shadow-sm">
-              <p className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase mb-3">02</p>
+              <p className="text-blue-950 font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight tabular-nums leading-none mb-4">
+                02
+              </p>
               <h2 className="text-2xl sm:text-3xl text-foreground font-bold tracking-tight">C4AC RE:ACT Lab Pilot Program</h2>
               <p className="mt-4 text-foreground/85 text-base sm:text-lg leading-relaxed">
                 Believe in the Invisible was selected as one of three organizations in India for a prestigious 6-month pilot initiative funded
@@ -65,7 +74,9 @@ const Achievements = () => {
 
             {/* 3 */}
             <article className="rounded-3xl border border-border/70 bg-card p-7 sm:p-9 shadow-sm">
-              <p className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase mb-3">03</p>
+              <p className="text-blue-950 font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight tabular-nums leading-none mb-4">
+                03
+              </p>
               <h2 className="text-2xl sm:text-3xl text-foreground font-bold tracking-tight">
                 Awarded a Micro seed Grant by GNYPWD
               </h2>
@@ -88,7 +99,9 @@ const Achievements = () => {
 
             {/* 4 */}
             <article className="rounded-3xl border border-border/70 bg-card p-7 sm:p-9 shadow-sm">
-              <p className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase mb-3">04</p>
+              <p className="text-blue-950 font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight tabular-nums leading-none mb-4">
+                04
+              </p>
               <h2 className="text-2xl sm:text-3xl text-foreground font-bold tracking-tight">Featured at Kalaneri Art Gallery</h2>
               <p className="mt-4 text-foreground/85 text-base sm:text-lg leading-relaxed">
                 Believe in the Invisible was prominently featured at the Rare Diseases Awareness Exhibition on March 3rd, 2024, at Jaipur's
@@ -108,19 +121,21 @@ const Achievements = () => {
 
             {/* 5 */}
             <article className="rounded-3xl border border-border/70 bg-card p-7 sm:p-9 shadow-sm">
-              <p className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase mb-3">05</p>
+              <p className="text-blue-950 font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight tabular-nums leading-none mb-4">
+                05
+              </p>
               <h2 className="text-2xl sm:text-3xl text-foreground font-bold tracking-tight">
                 Featured by NGO Trinayani in their film on invisible disabilities
               </h2>
               <p className="mt-4 text-foreground/85 text-base sm:text-lg leading-relaxed">
-                Believe in the Invisible was also featured by NGO Trinayani in their Film on Invisible{" "}
+                Believe in the Invisible was also featured by NGO Trinayani in their {" "}
                 <a
                   href="https://www.youtube.com/watch?v=fm217LHYUXE"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-semibold text-foreground underline decoration-foreground/90 decoration-2 underline-offset-4 hover:decoration-foreground hover:text-foreground transition-colors"
                 >
-                  disabilities
+                 Film on Invisible disabilities
                 </a>{" "}
                 during the International Purple Fest Goa 2024. The film included real-life stories from people with invisible disabilities,
                 showcasing their experiences and challenges. Our co-founders; Anjali Vyas &amp; Aarti Batra were also the part of the video,

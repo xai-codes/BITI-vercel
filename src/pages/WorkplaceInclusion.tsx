@@ -31,16 +31,14 @@ const WorkplaceInclusion = () => {
         <div className="container-section relative z-10 py-20 md:py-24">
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/35 bg-white/5 px-4 py-2 backdrop-blur-sm">
-              <Sparkles className="h-4 w-4 text-primary" aria-hidden />
-              <span className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase drop-shadow-[0_1px_0_rgba(0,0,0,0.35)]">
-                Our work
-              </span>
+              <Sparkles className="h-4 w-4 text-amber-200" aria-hidden />
+              <span className="work-kicker-hero">Our work</span>
             </div>
             <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-charcoal-foreground font-bold tracking-tight">
               Workplace Inclusion & Employer Engagement
             </h1>
             <p className="mt-5 text-lg sm:text-xl text-charcoal-foreground/85 leading-relaxed">
-              Shifting workplace conversations from compliance to culture—by bringing lived experience into professional spaces.
+              Shifting workplace conversations from compliance to culture by bringing lived experience into professional spaces.
             </p>
             <div className="mt-9 flex flex-col sm:flex-row gap-3">
               <Link
@@ -50,7 +48,7 @@ const WorkplaceInclusion = () => {
                 Work with us <ArrowRight size={18} />
               </Link>
               <Link
-                to="/work"
+                to="/"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 text-charcoal-foreground px-7 py-4 font-display text-base font-semibold tracking-wide hover:bg-white/10 transition-colors"
               >
                 Back to homepage <ArrowRight size={18} />
@@ -65,11 +63,9 @@ const WorkplaceInclusion = () => {
         <div className="container-section max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             <div className="lg:col-span-7">
-              <p className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase mb-4">
-                Workplace Inclusion & Employer Engagement
-              </p>
+              <p className="work-kicker mb-4">Workplace Inclusion & Employer Engagement</p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl text-foreground font-bold tracking-tight mb-6">
-                Building workplaces where invisible disabilities are understood—and accommodated.
+                Building workplaces where invisible disabilities are understood and accommodated.
               </h2>
               <p className="text-foreground/85 text-base sm:text-lg leading-relaxed">
                 Believe in the Invisible actively works with corporates, industry bodies, and institutions to build a deeper understanding of
@@ -77,38 +73,37 @@ const WorkplaceInclusion = () => {
                 brings lived experience into professional spaces, shifting conversations from compliance to culture.
               </p>
               <p className="mt-5 text-foreground/85 text-base sm:text-lg leading-relaxed">
-                We have engaged with organisations and platforms including Tata Steel Foundation, Extentia, HRAI (HR Association of India),
-                Capgemini, WIPRO, Composite Regional centres for Rehabilitation and Skill development of PWDs (GOI) and industry collaborations
-                among others. These sessions focus on understanding invisible disabilities, challenging workplace myths, reasonable
-                accommodation, inclusive hiring practices, and the role of leadership in fostering psychologically safe environments.
-              </p>
-
-              <div className="mt-8 flex flex-wrap gap-3">
+                We have engaged with organisations and platforms including Tata Steel Foundation, Extentia, HRAI (HR Association of India),{" "}
                 <a
                   href={links.capgemini}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-xl border border-border/80 bg-background/70 px-5 py-3 font-display font-semibold tracking-wide hover:bg-background transition-colors"
+                  className="font-semibold text-blue-950 underline underline-offset-2 hover:opacity-90"
                 >
-                  Capgemini post
+                  Capgemini
                 </a>
+                ,{" "}
                 <a
                   href={links.wipro}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-xl border border-border/80 bg-background/70 px-5 py-3 font-display font-semibold tracking-wide hover:bg-background transition-colors"
+                  className="font-semibold text-blue-950 underline underline-offset-2 hover:opacity-90"
                 >
-                  WIPRO post
+                  WIPRO
                 </a>
+                ,{" "}
                 <a
                   href={links.crcGoi}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-xl border border-border/80 bg-background/70 px-5 py-3 font-display font-semibold tracking-wide hover:bg-background transition-colors"
+                  className="font-semibold text-blue-950 underline underline-offset-2 hover:opacity-90"
                 >
-                  GOI / CRC post
-                </a>
-              </div>
+                  Composite Regional centres for Rehabilitation and Skill development of PWDs (GOI)
+                </a>{" "}
+                and industry collaborations among others. These sessions focus on understanding invisible disabilities, challenging workplace
+                myths, reasonable accommodation, inclusive hiring practices, and the role of leadership in fostering psychologically safe
+                environments.
+              </p>
             </div>
 
             <div className="lg:col-span-5">
@@ -169,15 +164,10 @@ const WorkplaceInclusion = () => {
         </div>
       </section>
 
-      {/* Posters */}
+      {/* Session highlights */}
       <section className="py-16 md:py-20 bg-muted/25 border-t border-border/60">
         <div className="container-section max-w-6xl">
-          <p className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase mb-4">
-            Posters
-          </p>
-          <h2 className="text-3xl sm:text-4xl text-foreground font-bold tracking-tight mb-8">
-            Session highlights
-          </h2>
+          <h2 className="text-3xl sm:text-4xl text-foreground font-bold tracking-tight mb-8">Session highlights</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {posters.map((p) => (

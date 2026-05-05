@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
-import bitiLogo from "/bitilogonew.png";
+import bitiLogo from "/home/bitilogo.jpg";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -48,7 +48,7 @@ const Navbar = () => {
   const linkClass = (active: boolean) =>
     cn(
       "relative px-3 py-2 text-base font-semibold font-display tracking-wide transition-colors duration-200 rounded-md",
-      active ? "text-primary" : "text-foreground hover:text-foreground",
+      active ? "text-primary" : "text-charcoal-foreground/90 hover:text-charcoal-foreground",
     );
 
   const isWorkActive = location.pathname === "/work";
@@ -56,8 +56,8 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        "sticky top-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm text-foreground border-b border-border/60",
-        scrolled && "shadow-sm",
+        "sticky top-0 z-50 transition-all duration-300 bg-charcoal text-charcoal-foreground border-b border-white/10",
+        scrolled && "shadow-sm shadow-black/25",
       )}
     >
       <div className="w-full flex items-center justify-between min-h-[4.5rem] px-4 sm:px-6 lg:px-10 gap-4">
@@ -68,7 +68,7 @@ const Navbar = () => {
             className="w-12 h-12 sm:w-14 sm:h-14 object-contain shrink-0"
           />
           <div className="hidden sm:flex flex-col leading-[1.05] min-w-0 pl-0.5">
-            <span className="font-display text-xs sm:text-sm font-semibold tracking-[0.1em] text-foreground uppercase truncate">
+            <span className="font-display text-xs sm:text-sm font-semibold tracking-[0.1em] text-charcoal-foreground uppercase truncate">
               Believe In The Invisible
             </span>
           </div>
@@ -93,7 +93,7 @@ const Navbar = () => {
             <DropdownMenuTrigger
               className={cn(
                 "inline-flex items-center gap-1.5 px-3 py-2 text-base font-semibold font-display tracking-wide rounded-md outline-none",
-                isWorkActive ? "text-primary" : "text-foreground hover:text-foreground",
+                isWorkActive ? "text-primary" : "text-charcoal-foreground/90 hover:text-charcoal-foreground",
               )}
             >
               Our Work
@@ -130,7 +130,7 @@ const Navbar = () => {
 
         <button
           type="button"
-          className="xl:hidden p-2 rounded-lg hover:bg-muted transition-colors text-foreground shrink-0"
+          className="xl:hidden p-2 rounded-lg hover:bg-white/10 transition-colors text-charcoal-foreground shrink-0"
           onClick={() => setOpen(!open)}
           aria-expanded={open}
           aria-label="Toggle menu"
@@ -142,7 +142,7 @@ const Navbar = () => {
       {/* Mobile */}
       <div
         className={cn(
-          "xl:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white border-t border-border/60",
+          "xl:hidden overflow-hidden transition-all duration-300 ease-in-out bg-charcoal border-t border-white/10 text-charcoal-foreground",
           open ? "max-h-[min(100vh,1000px)] opacity-100" : "max-h-0 opacity-0",
         )}
       >
@@ -152,7 +152,7 @@ const Navbar = () => {
             onClick={() => setOpen(false)}
             className={cn(
               "block px-4 py-3 rounded-lg text-base font-semibold font-display",
-              location.pathname === "/" ? "bg-primary/10 text-primary" : "text-foreground hover:bg-muted",
+              location.pathname === "/" ? "bg-primary/15 text-primary" : "text-charcoal-foreground hover:bg-white/10",
             )}
           >
             Home
@@ -162,7 +162,7 @@ const Navbar = () => {
             onClick={() => setOpen(false)}
             className={cn(
               "block px-4 py-3 rounded-lg text-base font-semibold font-display",
-              location.pathname === "/team" ? "bg-primary/10 text-primary" : "text-foreground hover:bg-muted",
+              location.pathname === "/team" ? "bg-primary/15 text-primary" : "text-charcoal-foreground hover:bg-white/10",
             )}
           >
             Our Team
@@ -172,20 +172,20 @@ const Navbar = () => {
             <button
               type="button"
               onClick={() => setWorkOpen(!workOpen)}
-              className="flex w-full items-center justify-between px-4 py-3 text-base font-semibold font-display text-left hover:bg-muted/80"
+              className="flex w-full items-center justify-between px-4 py-3 text-base font-semibold font-display text-left hover:bg-white/10"
               aria-expanded={workOpen}
             >
               Our Work
               <ChevronDown className={cn("h-5 w-5 transition-transform", workOpen && "rotate-180")} />
             </button>
             {workOpen && (
-              <div className="bg-muted/40 border-t border-border/40 py-1">
+              <div className="bg-white/5 border-t border-white/10 py-1">
                 {workDropdownItems.map((item) => (
                   <Link
                     key={item.to}
                     to={item.to}
                     onClick={() => setOpen(false)}
-                    className="block px-5 py-2.5 text-[15px] font-medium text-foreground hover:bg-background"
+                    className="block px-5 py-2.5 text-[15px] font-medium text-charcoal-foreground/90 hover:bg-white/10 hover:text-charcoal-foreground"
                   >
                     {item.label}
                   </Link>
@@ -211,7 +211,7 @@ const Navbar = () => {
                 onClick={() => setOpen(false)}
                 className={cn(
                   "block px-4 py-3 rounded-lg text-base font-semibold font-display",
-                  location.pathname === item.path ? "bg-primary/10 text-primary" : "text-foreground hover:bg-muted",
+                  location.pathname === item.path ? "bg-primary/15 text-primary" : "text-charcoal-foreground hover:bg-white/10",
                 )}
               >
                 {item.label}

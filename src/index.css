@@ -85,6 +85,16 @@
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
+  /* Our Work: small-caps section labels (replaces low-contrast `text-primary` on light UI) */
+  .work-kicker {
+    @apply font-display text-base sm:text-lg font-semibold tracking-[0.18em] sm:tracking-[0.2em] uppercase text-blue-950;
+  }
+
+  /* Our Work: hero pill label on `section-charcoal` (light text for contrast) */
+  .work-kicker-hero {
+    @apply font-display text-base sm:text-lg font-semibold tracking-[0.18em] sm:tracking-[0.2em] uppercase text-amber-200;
+  }
+
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out forwards;
     opacity: 0;

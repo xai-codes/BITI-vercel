@@ -1,4 +1,4 @@
-import { ArrowRight, Heart, Mail, Sparkles } from "lucide-react";
+import { ArrowRight, Mail, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const bankRows = [
@@ -34,14 +34,14 @@ const Donate = () => {
             </h1>
             <p className="mt-5 text-lg sm:text-xl text-charcoal-foreground/85 leading-relaxed">
               To donate, please find our bank details below. Every contribution strengthens advocacy for invisible
-              disability—thank you for believing with us.
+              disability thank you for believing with us.
             </p>
             <div className="mt-9 flex flex-col sm:flex-row gap-3">
               <a
                 href="mailto:info@believeintheinvisible.org?subject=Donation%20confirmation"
                 className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-7 py-4 rounded-xl font-display text-base font-semibold tracking-wide hover:opacity-90 transition-opacity shadow-lg shadow-primary/20"
               >
-                Confirm your donation <Mail size={18} />
+                Confirm your donation <Mail size={18} aria-hidden />
               </a>
               <Link
                 to="/contact"
@@ -54,72 +54,48 @@ const Donate = () => {
         </div>
       </section>
 
-      {/* Bank + QR */}
+      {/* Bank details */}
       <section className="py-16 md:py-20">
-        <div className="container-section max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            <div className="lg:col-span-7 space-y-6">
-              <div className="rounded-3xl border border-border/70 bg-card p-7 sm:p-9 shadow-sm">
-                <h2 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight">Bank details</h2>
-                <p className="mt-3 text-foreground/80 text-base leading-relaxed">
-                  Use these details for a direct transfer. Please keep a note of your transaction reference for your
-                  records.
-                </p>
-                <dl className="mt-8 space-y-4">
-                  {bankRows.map((row) => (
-                    <div
-                      key={row.label}
-                      className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 border-b border-border/50 pb-4 last:border-0 last:pb-0"
-                    >
-                      <dt className="text-sm font-semibold text-muted-foreground sm:w-40 shrink-0">{row.label}</dt>
-                      <dd className="text-base text-foreground font-medium break-words">{row.value}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-
-              <div className="rounded-3xl border border-primary/25 bg-primary/5 p-7 sm:p-8">
-                <p className="text-foreground font-semibold text-base sm:text-lg leading-relaxed">
-                  All donations are eligible for tax exemption under Section 80G of the Income Tax Act.
-                </p>
-              </div>
+        <div className="container-section max-w-7xl mx-auto">
+          <div className="max-w-6xl space-y-6">
+            <div className="rounded-3xl border border-border/70 bg-card p-7 sm:p-10 shadow-sm">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight">Bank details</h2>
+              <p className="mt-3 text-foreground/80 text-base sm:text-lg leading-relaxed max-w-4xl">
+                Use these details for a direct transfer. Please keep a note of your transaction reference for your
+                records.
+              </p>
+              <dl className="mt-8 space-y-4">
+                {bankRows.map((row) => (
+                  <div
+                    key={row.label}
+                    className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 border-b border-border/50 pb-4 last:border-0 last:pb-0"
+                  >
+                    <dt className="text-sm font-semibold text-foreground/70 sm:w-44 shrink-0">{row.label}</dt>
+                    <dd className="text-base sm:text-lg text-foreground font-medium break-words">{row.value}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
 
-            <div className="lg:col-span-5">
-              <div className="rounded-3xl border border-border/70 bg-card p-7 sm:p-8 shadow-sm lg:sticky lg:top-28">
-                <div className="flex items-center gap-2 text-foreground font-bold text-lg sm:text-xl">
-                  <Heart className="h-5 w-5 text-primary shrink-0" aria-hidden />
-                  Scan to donate
-                </div>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                  If your banking app supports UPI or QR payments for this account, scan the code below.
-                </p>
-                <div className="mt-6 flex justify-center">
-                  <div className="rounded-2xl border border-border/70 bg-background p-4 sm:p-5 shadow-inner">
-                    <img
-                      src="/shareqr.png"
-                      alt="QR code to donate to Believe in the Invisible"
-                      className="w-full max-w-[280px] h-auto mx-auto"
-                      width={280}
-                      height={280}
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-              </div>
+            <div className="rounded-3xl border border-primary/25 bg-primary/5 p-7 sm:p-8">
+              <p className="text-foreground font-semibold text-base sm:text-lg leading-relaxed max-w-4xl">
+                All donations are eligible for tax exemption under Section 80G of the Income Tax Act.
+              </p>
             </div>
           </div>
 
-          <div className="mt-8 lg:mt-10 relative overflow-hidden rounded-3xl border border-border/70 bg-gradient-to-br from-primary/20 via-background to-secondary/25 p-7 sm:p-10">
-            <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-primary/30 blur-3xl" aria-hidden />
-            <div className="absolute -bottom-28 -left-28 h-72 w-72 rounded-full bg-secondary/35 blur-3xl" aria-hidden />
+          <div className="mt-8 lg:mt-10 max-w-6xl relative overflow-hidden rounded-3xl border-2 border-blue-950/25 bg-blue-950/[0.07] p-7 sm:p-10">
+            <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-blue-950/10 blur-3xl" aria-hidden />
+            <div className="absolute -bottom-28 -left-28 h-72 w-72 rounded-full bg-blue-950/5 blur-3xl" aria-hidden />
             <div className="relative flex flex-col sm:flex-row sm:items-start gap-4">
-              <Mail className="h-5 w-5 text-primary shrink-0 sm:mt-1" aria-hidden />
-              <p className="text-foreground/85 text-base sm:text-lg leading-relaxed flex-1 min-w-0">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-950/15 text-blue-950 sm:mt-0.5">
+                <Mail className="h-5 w-5" aria-hidden />
+              </div>
+              <p className="text-blue-950 text-base sm:text-lg leading-relaxed flex-1 min-w-0 font-medium">
                 We kindly request that you send a confirmation email to{" "}
                 <a
                   href="mailto:info@believeintheinvisible.org?subject=Donation%20confirmation"
-                  className="font-semibold text-primary underline underline-offset-2 hover:opacity-90 break-all sm:break-normal"
+                  className="font-bold text-blue-950 underline decoration-2 decoration-blue-950/50 underline-offset-[3px] hover:decoration-blue-950 break-all sm:break-normal"
                 >
                   info@believeintheinvisible.org
                 </a>{" "}

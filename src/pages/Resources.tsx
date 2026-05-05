@@ -137,7 +137,7 @@ const sections: ResourceSection[] = [
       },
       {
         label:
-          "People with invisible disabilities like me are routinely disbelieved — and it can have long-lasting effects",
+          "People with invisible disabilities like me are routinely disbelieved   and it can have long-lasting effects",
         url: "https://www.abc.net.au/news/2022-11-30/invisible-disabilities-routinely-disbelieved/101420680",
       },
       {
@@ -205,7 +205,7 @@ const Resources = () => {
               Resources
             </h1>
             <p className="mt-5 text-lg sm:text-xl text-charcoal-foreground/85 leading-relaxed">
-              Curated links on laws, news, knowledge, and lived experience—so inclusion is easier to understand and act
+              Curated links on laws, news, knowledge, and lived experience so inclusion is easier to understand and act
               on.
             </p>
           </div>
@@ -214,8 +214,8 @@ const Resources = () => {
 
       {/* Intro */}
       <section className="py-16 md:py-20">
-        <div className="container-section max-w-4xl">
-          <div className="rounded-3xl border border-border/70 bg-card p-7 sm:p-10 shadow-sm space-y-5 text-foreground/85 text-base sm:text-lg leading-relaxed">
+        <div className="container-section max-w-5xl">
+          <div className="rounded-3xl border border-border/70 bg-card p-7 sm:p-10 md:p-12 shadow-sm space-y-6 text-foreground/90 text-lg sm:text-xl md:text-[1.35rem] leading-relaxed">
             <p>
               Explore the collection of resources focused on invisible disabilities, offering in-depth insights, research
               papers, advocacy toolkits, and support guides. Whether you&apos;re looking to better understand conditions
@@ -232,14 +232,14 @@ const Resources = () => {
 
       {/* Link sections */}
       <section className="pb-20 md:pb-28">
-        <div className="container-section max-w-4xl space-y-10">
+        <div className="container-section max-w-5xl space-y-12">
           {sections.map((section) => (
             <div
               key={section.title}
               className="rounded-3xl border border-border/70 bg-card shadow-sm overflow-hidden"
             >
               <div className="border-b border-border/60 bg-muted/20 px-6 py-5 sm:px-8 sm:py-6">
-                <h2 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">{section.title}</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight">{section.title}</h2>
               </div>
               <ul className="divide-y divide-border/60">
                 {section.items.map((item, idx) => (
@@ -248,22 +248,24 @@ const Resources = () => {
                       href={item.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-start gap-4 px-6 py-4 sm:px-8 sm:py-5 hover:bg-muted/30 transition-colors"
+                      className="group flex items-start gap-4 px-6 py-4 sm:px-8 sm:py-5 hover:bg-blue-950/[0.06] transition-colors"
                     >
                       {section.numbered ? (
-                        <span className="font-display text-sm font-semibold text-primary tabular-nums w-7 shrink-0 pt-0.5">
+                        <span className="font-display text-lg sm:text-xl font-bold text-blue-950 tabular-nums w-9 sm:w-10 shrink-0 pt-0.5">
                           {idx + 1}.
                         </span>
                       ) : (
                         <span
-                          className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70 group-hover:bg-primary transition-colors"
+                          className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-blue-950/60 group-hover:bg-blue-950 transition-colors"
                           aria-hidden
                         />
                       )}
-                      <span className="min-w-0 flex-1 text-base text-foreground group-hover:text-primary transition-colors leading-relaxed inline-flex items-start gap-2">
-                        <span className="underline-offset-4 group-hover:underline">{item.label}</span>
+                      <span className="min-w-0 flex-1 text-lg sm:text-xl text-foreground leading-relaxed inline-flex items-start gap-2">
+                        <span className="group-hover:text-blue-950 transition-colors underline-offset-[5px] decoration-2 decoration-blue-950/30 group-hover:decoration-blue-950 group-hover:underline">
+                          {item.label}
+                        </span>
                         <ExternalLink
-                          className="shrink-0 mt-1 h-4 w-4 opacity-50 group-hover:opacity-80"
+                          className="shrink-0 mt-1.5 h-4 w-4 sm:h-5 sm:w-5 text-black opacity-90 group-hover:opacity-100 transition-opacity"
                           aria-hidden
                         />
                       </span>

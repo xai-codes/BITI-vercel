@@ -12,9 +12,9 @@ const ExperientialAdvocacy = () => {
   } as const;
 
   const images = {
-    purpleGoa: "/our-work/Experiential%20Advocacy/Purple%20Fest%20Goa.jpg",
-    internationalPurpleFest: "/our-work/Experiential%20Advocacy/International%20Purple%20Fest%20Goa.png",
-    purpleDelhi: "/our-work/Experiential%20Advocacy/Purple%20Fest%20Delhi.jpg",
+    purpleGoa: "/our-work/Experiential%20Advocacy/goa2.jpg",
+    internationalPurpleFest: "/our-work/Experiential%20Advocacy/Purple-Fest-Goa.jpg",
+    purpleDelhi: "/our-work/Experiential%20Advocacy/purple-fest-delhi.jpeg",
     purpleJallosh: "/our-work/Experiential%20Advocacy/Purple%20Jallosh.jpg",
     hushed: "/our-work/Experiential%20Advocacy/Hushed%20Impressions.jpg",
     narrative1: "/our-work/Experiential%20Advocacy/Narratives%20from%20the%20event/Post%20(5).png",
@@ -36,16 +36,14 @@ const ExperientialAdvocacy = () => {
         <div className="container-section relative z-10 py-20 md:py-24">
           <div className="max-w-5xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/35 bg-white/5 px-4 py-2 backdrop-blur-sm">
-              <Sparkles className="h-4 w-4 text-primary" aria-hidden />
-              <span className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase drop-shadow-[0_1px_0_rgba(0,0,0,0.35)]">
-                Our work
-              </span>
+              <Sparkles className="h-4 w-4 text-amber-200" aria-hidden />
+              <span className="work-kicker-hero">Our work</span>
             </div>
             <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-charcoal-foreground font-bold tracking-tight">
               Experiential Advocacy & Public Engagement
             </h1>
             <p className="mt-5 text-lg sm:text-xl text-charcoal-foreground/85 leading-relaxed">
-              Creating immersive, public-facing experiences that make invisible disability tangible—and drive dialogue, empathy, and change.
+              Creating immersive, public-facing experiences that make invisible disability tangible and drive dialogue, empathy, and change.
             </p>
 
             <div className="mt-9 flex flex-col sm:flex-row gap-3">
@@ -69,9 +67,7 @@ const ExperientialAdvocacy = () => {
       {/* Purple Fest */}
       <section className="py-16 md:py-20">
         <div className="container-section max-w-6xl">
-          <p className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase mb-4">
-            International Purple Fest Goa & Delhi
-          </p>
+          <p className="work-kicker mb-4">International Purple Fest Goa & Delhi</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-foreground font-bold tracking-tight mb-8">
             Purple Fest
           </h2>
@@ -130,27 +126,39 @@ const ExperientialAdvocacy = () => {
       {/* Experience Zone */}
       <section className="py-16 md:py-20 bg-muted/25 border-y border-border/60">
         <div className="container-section max-w-6xl">
-          <p className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase mb-4">
-            Experience Zone
-          </p>
+          <p className="work-kicker mb-4">Experience Zone</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-foreground font-bold tracking-tight mb-6">
             “Experience the Invisible”
           </h2>
           <p className="text-foreground/85 text-base sm:text-lg leading-relaxed max-w-4xl">
             Believe in the Invisible curated immersive Experience Zones at International Purple Fest, Goa and Purple Jallosh, Pune, inviting
             participants to step into the everyday realities of invisible disabilities. Through thoughtfully designed simulations - such as
-            blindfolded walks, balancing tasks, and dexterity challenges using everyday objects—visitors engaged with sensory, cognitive, and
+            blindfolded walks, balancing tasks, and dexterity challenges using everyday objects visitors engaged with sensory, cognitive, and
             physical barriers often overlooked in daily life. The initiative saw participation from persons with disabilities, employers, NGO
             representatives, and senior government officials, including the Secretary, Department of Empowerment of Persons with Disabilities,
             the PCMC Commissioner, and the Maharashtra State Commissioner.
           </p>
 
           <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <figure className="rounded-3xl overflow-hidden border border-border/70 bg-background/60 shadow-[0_14px_28px_rgba(0,0,0,0.10),0_4px_0_rgba(0,0,0,0.10)]">
-              <img src={images.purpleGoa} alt="Experience the Invisible at Purple Fest Goa" className="w-full h-auto object-contain" loading="lazy" />
+            <figure className="rounded-3xl overflow-hidden border border-border/70 bg-muted/40 shadow-[0_14px_28px_rgba(0,0,0,0.10),0_4px_0_rgba(0,0,0,0.10)]">
+              <div className="relative aspect-[4/3] w-full sm:aspect-[16/10]">
+                <img
+                  src={images.purpleGoa}
+                  alt="Experience the Invisible at Purple Fest Goa"
+                  className="absolute inset-0 h-full w-full object-cover object-center"
+                  loading="lazy"
+                />
+              </div>
             </figure>
-            <figure className="rounded-3xl overflow-hidden border border-border/70 bg-background/60 shadow-[0_14px_28px_rgba(0,0,0,0.10),0_4px_0_rgba(0,0,0,0.10)]">
-              <img src={images.purpleJallosh} alt="Experience the Invisible at Purple Jallosh" className="w-full h-auto object-contain" loading="lazy" />
+            <figure className="rounded-3xl overflow-hidden border border-border/70 bg-muted/40 shadow-[0_14px_28px_rgba(0,0,0,0.10),0_4px_0_rgba(0,0,0,0.10)]">
+              <div className="relative aspect-[4/3] w-full sm:aspect-[16/10]">
+                <img
+                  src={images.purpleJallosh}
+                  alt="Experience the Invisible at Purple Jallosh"
+                  className="absolute inset-0 h-full w-full object-cover object-center"
+                  loading="lazy"
+                />
+              </div>
             </figure>
           </div>
         </div>
@@ -159,14 +167,12 @@ const ExperientialAdvocacy = () => {
       {/* Hushed Impressions */}
       <section className="py-16 md:py-20">
         <div className="container-section max-w-6xl">
-          <p className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase mb-4">
-            Hushed Impressions
-          </p>
+          <p className="work-kicker mb-4">Hushed Impressions</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl text-foreground font-bold tracking-tight mb-6">
             Art, Stories & Sound as Resistance
           </h2>
           <p className="text-foreground/85 text-base sm:text-lg leading-relaxed max-w-4xl">
-            In May 2024, we hosted &quot;Hushed Impressions&quot; at Kunzum Bookstore, Delhi—a vibrant physical event celebrating the intersection
+            In May 2024, we hosted &quot;Hushed Impressions&quot; at Kunzum Bookstore, Delhi a vibrant physical event celebrating the intersection
             of disability, gender, and identity. This inaugural gathering brought together over 80 attendees for a powerful meld of art
             exhibitions, open-mic storytelling, and musical performances.
           </p>
@@ -187,8 +193,8 @@ const ExperientialAdvocacy = () => {
                 Storytelling as Bodies of Resistance,&quot; exploring how creative expression drives advocacy.
               </li>
               <li>
-                <span className="font-semibold text-foreground">Inclusive Dialogue</span>: A diverse panel—moderated by a leader with an
-                invisible disability—that engaged the LGBTQ+ community and broader social movements.
+                <span className="font-semibold text-foreground">Inclusive Dialogue</span>: A diverse panel moderated by a leader with an
+                invisible disability that engaged the LGBTQ+ community and broader social movements.
               </li>
             </ul>
             <p className="mt-6 text-foreground/85 text-base sm:text-lg leading-relaxed">
@@ -198,9 +204,7 @@ const ExperientialAdvocacy = () => {
           </div>
 
           <div className="mt-12">
-            <p className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase mb-4">
-              Narratives from the event
-            </p>
+            <p className="work-kicker mb-4">Narratives from the event</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 { src: images.narrative1, alt: "Narrative poster 1" },

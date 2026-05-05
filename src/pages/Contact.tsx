@@ -1,5 +1,6 @@
 import {
   ArrowRight,
+  CircleCheck,
   Instagram,
   Linkedin,
   Mail,
@@ -10,16 +11,67 @@ import {
   Twitter,
   Youtube,
 } from "lucide-react";
-import { useState } from "react";
+import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
+import { getEmailJsConfig } from "@/config/emailjs";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const Contact = () => {
+  const formRef = useRef<HTMLFormElement>(null);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sending, setSending] = useState(false);
+  const [successDialogOpen, setSuccessDialogOpen] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    const { publicKey, ok } = getEmailJsConfig();
+    if (ok) {
+      emailjs.init({ publicKey });
+    }
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:believeintheinvisible2022@gmail.com?subject=Contact from ${encodeURIComponent(form.name)}&body=${encodeURIComponent(form.message)}`;
-    window.open(mailtoLink);
+    const { serviceId, templateId, publicKey, ok } = getEmailJsConfig();
+
+    if (!ok) {
+      toast.error(
+        "Email is not configured. Create a `.env` file in the project root with VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY (see `.env.example`).",
+      );
+      return;
+    }
+    if (!formRef.current) return;
+
+    setSending(true);
+    try {
+      await emailjs.sendForm(serviceId, templateId, formRef.current, { publicKey });
+      setForm({ name: "", email: "", message: "" });
+      setSuccessDialogOpen(true);
+    } catch (err) {
+      console.error(err);
+      const detail =
+        err instanceof EmailJSResponseStatus
+          ? err.text
+          : err instanceof Error
+            ? err.message
+            : null;
+      toast.error(
+        detail
+          ? `${detail} If this persists, confirm Service ID and Public Key are from the same EmailJS account and restart the dev server after editing .env.`
+          : "Could not send your message. Please try email or phone instead.",
+      );
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -45,7 +97,7 @@ const Contact = () => {
               Contact us
             </h1>
             <p className="mt-5 text-lg sm:text-xl text-charcoal-foreground/85 leading-relaxed">
-              We’d love to hear from you. Reach out directly or send a message—either way, we’ll get back to you.
+              We’d love to hear from you. Reach out directly or send a message either way, we’ll get back to you.
             </p>
           </div>
         </div>
@@ -57,37 +109,37 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start max-w-6xl mx-auto">
             <div className="lg:col-span-5 space-y-6">
               <div className="rounded-2xl border border-border/70 bg-card p-7 shadow-sm">
-                <h2 className="text-xl text-foreground font-bold mb-5">Reach us</h2>
+                <h2 className="text-2xl md:text-3xl text-foreground font-bold mb-6">Reach us</h2>
 
-                <div className="space-y-5">
+                <div className="space-y-6 text-base sm:text-lg">
                   <a
                     href="https://maps.google.com/?q=5/79,+Shivaji+Nagar,+Gurugram,+Basai+Road,+Haryana,+India+122001"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-start gap-4 group"
                   >
-                    <div className="w-11 h-11 rounded-xl bg-primary/15 text-primary flex items-center justify-center shrink-0">
-                      <MapPin size={20} />
+                    <div className="w-12 h-12 rounded-xl bg-blue-950/10 text-blue-950 flex items-center justify-center shrink-0">
+                      <MapPin size={22} />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-foreground font-semibold">Registered Office</p>
-                      <p className="text-foreground/75 leading-relaxed break-words group-hover:text-primary transition-colors">
+                      <p className="text-foreground font-bold text-lg sm:text-xl">Registered Office</p>
+                      <p className="mt-1 text-foreground/90 leading-relaxed break-words group-hover:text-blue-950 transition-colors">
                         5/79, Shivaji Nagar, Gurugram, Basai Road, Haryana, India – 122001
                       </p>
                     </div>
                   </a>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-xl bg-primary/15 text-primary flex items-center justify-center shrink-0">
-                      <Phone size={20} />
+                    <div className="w-12 h-12 rounded-xl bg-blue-950/10 text-blue-950 flex items-center justify-center shrink-0">
+                      <Phone size={22} />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-foreground font-semibold">Phone</p>
-                      <div className="space-y-1">
-                        <a href="tel:+919818534862" className="block text-foreground/75 hover:text-primary transition-colors">
+                      <p className="text-foreground font-bold text-lg sm:text-xl">Phone</p>
+                      <div className="mt-1 space-y-1">
+                        <a href="tel:+919818534862" className="block text-foreground/90 hover:text-blue-950 transition-colors font-medium">
                           +91 9818534862
                         </a>
-                        <a href="tel:+918668244276" className="block text-foreground/75 hover:text-primary transition-colors">
+                        <a href="tel:+918668244276" className="block text-foreground/90 hover:text-blue-950 transition-colors font-medium">
                           +91 8668244276
                         </a>
                       </div>
@@ -95,85 +147,85 @@ const Contact = () => {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-xl bg-primary/15 text-primary flex items-center justify-center shrink-0">
-                      <Mail size={20} />
+                    <div className="w-12 h-12 rounded-xl bg-blue-950/10 text-blue-950 flex items-center justify-center shrink-0">
+                      <Mail size={22} />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-foreground font-semibold">Email</p>
+                      <p className="text-foreground font-bold text-lg sm:text-xl">Email</p>
                       <a
-                        href="mailto:ho@believeintheinvisible.org"
-                        className="block text-foreground/75 hover:text-primary transition-colors break-all"
+                        href="mailto:connect@believeintheinvisible.org"
+                        className="mt-1 block text-foreground/90 hover:text-blue-950 transition-colors break-all font-medium"
                       >
-                        ho@believeintheinvisible.org
+                        connect@believeintheinvisible.org
                       </a>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-7">
+                <div className="mt-8">
                   <Link
                     to="/donate"
-                    className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-display text-base font-semibold tracking-wide hover:opacity-90 transition-opacity shadow-lg shadow-primary/20 w-full sm:w-auto"
+                    className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-7 py-3.5 rounded-xl font-display text-lg font-semibold tracking-wide hover:opacity-90 transition-opacity shadow-lg shadow-primary/20 w-full sm:w-auto"
                   >
-                    Donate <ArrowRight size={18} />
+                    Donate <ArrowRight size={20} />
                   </Link>
                 </div>
               </div>
 
               <div className="rounded-2xl border border-border/70 bg-card p-7 shadow-sm">
-                <h2 className="text-xl text-foreground font-bold mb-5">Follow</h2>
-                <ul className="space-y-3 text-foreground/80">
+                <h2 className="text-xl md:text-2xl text-foreground font-bold mb-5">Follow</h2>
+                <ul className="space-y-3.5 text-base text-foreground/85">
                   <li className="flex items-center gap-3">
-                    <Linkedin className="h-5 w-5 text-primary shrink-0" aria-hidden />
+                    <Linkedin className="h-5 w-5 text-blue-950 shrink-0" aria-hidden />
                     <a
                       href="https://www.linkedin.com/company/believe-in-the-invisible/?viewAsMember=true"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-primary transition-colors"
+                      className="hover:text-blue-950 transition-colors"
                     >
                       LinkedIn: Believe In The Invisible
                     </a>
                   </li>
                   <li className="flex items-center gap-3">
-                    <Instagram className="h-5 w-5 text-primary shrink-0" aria-hidden />
+                    <Instagram className="h-5 w-5 text-blue-950 shrink-0" aria-hidden />
                     <a
                       href="https://www.instagram.com/believeintheinvisible/?locale=en_GB"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-primary transition-colors"
+                      className="hover:text-blue-950 transition-colors"
                     >
                       Instagram: believeintheinvisible
                     </a>
                   </li>
                   <li className="flex items-center gap-3">
-                    <MessageCircle className="h-5 w-5 text-primary shrink-0" aria-hidden />
+                    <MessageCircle className="h-5 w-5 text-blue-950 shrink-0" aria-hidden />
                     <a
                       href="https://whatsapp.com/channel/0029VaH8ZQGJP21An5oZwN0Z"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-primary transition-colors"
+                      className="hover:text-blue-950 transition-colors"
                     >
                       WhatsApp Channel: Believe In The Invisible
                     </a>
                   </li>
                   <li className="flex items-center gap-3">
-                    <Twitter className="h-5 w-5 text-primary shrink-0" aria-hidden />
+                    <Twitter className="h-5 w-5 text-blue-950 shrink-0" aria-hidden />
                     <a
                       href="https://x.com/BelieveInvisibl"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-primary transition-colors"
+                      className="hover:text-blue-950 transition-colors"
                     >
                       X (Twitter): BelieveInvisibl
                     </a>
                   </li>
                   <li className="flex items-center gap-3">
-                    <Youtube className="h-5 w-5 text-primary shrink-0" aria-hidden />
+                    <Youtube className="h-5 w-5 text-blue-950 shrink-0" aria-hidden />
                     <a
                       href="https://youtube.com/@believeintheinvisible?si=FqEAQLyHjIuzFBqg"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-primary transition-colors break-all"
+                      className="hover:text-blue-950 transition-colors break-all"
                     >
                       YouTube: @believeintheinvisible
                     </a>
@@ -186,22 +238,23 @@ const Contact = () => {
               <div className="rounded-2xl border border-border/70 bg-card p-7 sm:p-8 shadow-sm">
                 <h2 className="text-2xl text-foreground font-bold mb-2">Send a message</h2>
                 <p className="text-foreground/75 leading-relaxed mb-7">
-                  This opens your email client. Include as much detail as you can so we can respond faster.
+                  Send us a message below. Include as much detail as you can so we can respond faster.
                 </p>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form ref={formRef} id="biti-contact-form" onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <label htmlFor="name" className="block text-sm mb-1 text-foreground/80">
                       Name
                     </label>
                     <input
                       id="name"
+                      name="from_name"
                       type="text"
                       required
                       maxLength={100}
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full px-4 py-3 border border-border rounded-xl bg-background text-foreground focus:ring-2 focus:ring-primary outline-none"
+                      className="w-full px-4 py-3 border-2 border-blue-950/25 rounded-xl bg-background text-foreground placeholder:text-foreground/45 focus:border-blue-950 focus:ring-2 focus:ring-blue-950/20 outline-none transition-colors"
                     />
                   </div>
                   <div>
@@ -210,12 +263,13 @@ const Contact = () => {
                     </label>
                     <input
                       id="email"
+                      name="from_email"
                       type="email"
                       required
                       maxLength={255}
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full px-4 py-3 border border-border rounded-xl bg-background text-foreground focus:ring-2 focus:ring-primary outline-none"
+                      className="w-full px-4 py-3 border-2 border-blue-950/25 rounded-xl bg-background text-foreground placeholder:text-foreground/45 focus:border-blue-950 focus:ring-2 focus:ring-blue-950/20 outline-none transition-colors"
                     />
                   </div>
                   <div>
@@ -224,19 +278,21 @@ const Contact = () => {
                     </label>
                     <textarea
                       id="message"
+                      name="message"
                       required
                       maxLength={1000}
                       rows={6}
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      className="w-full px-4 py-3 border border-border rounded-xl bg-background text-foreground focus:ring-2 focus:ring-primary outline-none resize-none"
+                      className="w-full px-4 py-3 border-2 border-blue-950/25 rounded-xl bg-background text-foreground placeholder:text-foreground/45 focus:border-blue-950 focus:ring-2 focus:ring-blue-950/20 outline-none resize-none transition-colors"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-charcoal text-charcoal-foreground py-3 font-display text-lg tracking-wide hover:opacity-90 transition-opacity rounded-xl"
+                    disabled={sending}
+                    className="w-full inline-flex items-center justify-center gap-2 bg-charcoal text-charcoal-foreground py-3 font-display text-lg tracking-wide hover:opacity-90 transition-opacity rounded-xl disabled:opacity-60 disabled:pointer-events-none"
                   >
-                    Send Message <ArrowRight size={18} />
+                    {sending ? "Sending…" : "Send message"} <ArrowRight size={18} />
                   </button>
                 </form>
               </div>
@@ -259,6 +315,34 @@ const Contact = () => {
           </div>
         </div>
       </section>
+
+      <Dialog open={successDialogOpen} onOpenChange={setSuccessDialogOpen}>
+        <DialogContent className="sm:max-w-md border-border/80 p-8 text-center [&>button]:text-foreground/70">
+          <div className="flex flex-col items-center gap-5">
+            <div
+              className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/15 text-primary ring-4 ring-primary/10"
+              aria-hidden
+            >
+              <CircleCheck className="h-9 w-9" strokeWidth={2} />
+            </div>
+            <DialogHeader className="space-y-2 text-center sm:text-center">
+              <DialogTitle className="text-xl font-bold tracking-tight">Message sent</DialogTitle>
+              <DialogDescription className="text-base text-muted-foreground leading-relaxed">
+                Thank you for reaching out. We will get back to you soon.
+              </DialogDescription>
+            </DialogHeader>
+            <DialogFooter className="w-full flex-col gap-0 pt-1 sm:flex-row sm:justify-center">
+              <Button
+                type="button"
+                className="w-full sm:w-auto min-w-[140px] rounded-xl font-display tracking-wide"
+                onClick={() => setSuccessDialogOpen(false)}
+              >
+                Got it
+              </Button>
+            </DialogFooter>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

@@ -1,7 +1,8 @@
+import { Sparkles } from "lucide-react";
+
 const Work = () => {
   const links = {
     compendiumPdf: "https://drive.google.com/file/d/1RUNleGySzwFzbvu6kZAlEOohbugBaVO9/view",
-    caringAnnouncement: "https://drive.google.com/file/d/141NLFiEhKgmHCYUNZEdxAgX9VRMA9mJ-/view",
     disabledLoveVideo: "https://youtu.be/yBXNlzMJyH8?si=o25M4pMstWa1S8Jk",
     rishabhReel:
       "https://www.instagram.com/reel/DM4jeMyA_P1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
@@ -33,14 +34,38 @@ const Work = () => {
 
         <div className="container-section relative z-10 py-20 md:py-24">
           <div className="max-w-3xl">
-            <p className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase drop-shadow-[0_1px_0_rgba(0,0,0,0.35)]">
-              Our Work
-            </p>
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/35 bg-white/5 px-4 py-2 backdrop-blur-sm">
+              <Sparkles className="h-4 w-4 text-primary" aria-hidden />
+              <span className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase drop-shadow-[0_1px_0_rgba(0,0,0,0.35)]">
+                Our Work
+              </span>
+            </div>
             <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-charcoal-foreground font-bold tracking-tight">
               Digital storytelling campaigns
             </h1>
             <p className="mt-5 text-lg sm:text-xl text-charcoal-foreground/85 leading-relaxed">
-              Narratives that make invisible disability visible—building empathy, shifting culture, and driving action.
+              Narratives that make invisible disability visible building empathy, shifting culture, and driving action.
+            </p>
+            <p className="mt-6 text-base sm:text-lg text-charcoal-foreground/90 leading-relaxed">
+              Read more narratives from our community on{" "}
+              <a
+                href="https://www.instagram.com/believeintheinvisible/?locale=en_GB"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-primary underline decoration-primary/60 underline-offset-[3px] hover:opacity-90"
+              >
+                Instagram
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://www.linkedin.com/company/believe-in-the-invisible/?viewAsMember=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-primary underline decoration-primary/60 underline-offset-[3px] hover:opacity-90"
+              >
+                LinkedIn
+              </a>
+              .
             </p>
           </div>
         </div>
@@ -60,10 +85,10 @@ const Work = () => {
               <a
                 key={area.id}
                 href={`#${area.id}`}
-                className="rounded-2xl border border-border/70 bg-background/70 px-5 py-4 hover:bg-background transition-colors"
+                className="rounded-2xl border border-border/70 bg-background/70 px-6 py-5 sm:px-7 sm:py-6 hover:bg-background transition-colors"
               >
-                <p className="text-foreground font-semibold">{area.title}</p>
-                <p className="mt-1 text-sm text-muted-foreground">Jump to section</p>
+                <p className="text-foreground font-bold text-lg sm:text-xl md:text-2xl leading-snug">{area.title}</p>
+                <p className="mt-2 text-sm sm:text-base font-medium text-foreground/65">Jump to section</p>
               </a>
             ))}
           </div>
@@ -74,10 +99,8 @@ const Work = () => {
       <section id="digital-storytelling-campaigns" className="scroll-mt-28 py-16 md:py-20">
         <div className="container-section max-w-6xl">
           <div className="max-w-3xl">
-            <p className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase mb-4">
-              Digital storytelling campaigns
-            </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl text-foreground font-bold tracking-tight mb-5">
+            <p className="work-kicker mb-4">Digital storytelling campaigns</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl text-foreground font-bold tracking-tight mb-8">
               DIGITAL STORYTELLING CAMPAIGNS
             </h2>
           </div>
@@ -112,7 +135,7 @@ const Work = () => {
             </div>
 
             <div className="mt-10">
-              <p className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase mb-5">Narratives</p>
+              <p className="work-kicker mb-5">Narratives</p>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Premroop */}
@@ -169,34 +192,23 @@ const Work = () => {
 
           {/* Caring is Believing */}
           <div className="mt-10 rounded-3xl border border-border/70 bg-card p-7 sm:p-9 shadow-sm">
-            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
-              <div className="max-w-3xl">
-                <h3 className="text-2xl sm:text-3xl text-foreground font-bold">Caring is Believing: Announcement Post</h3>
-                <p className="mt-4 text-foreground/85 leading-relaxed text-base sm:text-lg">
-                  Building on the momentum of the first Campaign, Believe in the Invisible, a subsequent campaign titled “Caring is Believing”
-                  was launched in 2023. This extended initiative continued to spotlight narratives from diverse communities affected by
-                  invisible disabilities, fostering empathy, understanding, and support.
-                </p>
-                <p className="mt-4 text-foreground/85 leading-relaxed text-base sm:text-lg">
-                  “Caring is Believing” featured narratives and perspectives of the communities who too are affected with invisible
-                  disabilities. It encouraged allies and advocates to share their stories of support and care, highlighting the importance of a
-                  compassionate and inclusive society. “Caring is Believing” aimed to create lasting change, empowering individuals and
-                  communities to recognize, understand, and support those living with invisible disabilities.
-                </p>
-              </div>
-
-              <a
-                href={links.caringAnnouncement}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-xl border border-border/80 bg-background/70 px-6 py-3 font-display font-semibold tracking-wide hover:bg-background transition-colors w-full lg:w-auto"
-              >
-                View post
-              </a>
+            <div className="max-w-3xl">
+              <h3 className="text-2xl sm:text-3xl text-foreground font-bold">Caring is Believing</h3>
+              <p className="mt-4 text-foreground/85 leading-relaxed text-base sm:text-lg">
+                Building on the momentum of the first Campaign, Believe in the Invisible, a subsequent campaign titled “Caring is Believing”
+                was launched in 2023. This extended initiative continued to spotlight narratives from diverse communities affected by
+                invisible disabilities, fostering empathy, understanding, and support.
+              </p>
+              <p className="mt-4 text-foreground/85 leading-relaxed text-base sm:text-lg">
+                “Caring is Believing” featured narratives and perspectives of the communities who too are affected with invisible
+                disabilities. It encouraged allies and advocates to share their stories of support and care, highlighting the importance of a
+                compassionate and inclusive society. “Caring is Believing” aimed to create lasting change, empowering individuals and
+                communities to recognize, understand, and support those living with invisible disabilities.
+              </p>
             </div>
 
             <div className="mt-10">
-              <p className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase mb-5">Narratives</p>
+              <p className="work-kicker mb-5">Narratives</p>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <article className="rounded-2xl border border-border/70 bg-background/60 p-6 shadow-[0_10px_18px_rgba(0,0,0,0.08),0_3px_0_rgba(0,0,0,0.08)]">
@@ -256,12 +268,12 @@ const Work = () => {
               During Disability Employment Awareness Month, BITI led a research-informed digital campaign focused on invisible disabilities and
               workplace inclusion. The campaign combined facts, data points, research findings, and real-life case studies to move the
               conversation beyond awareness toward accountability and action. Professionals living with invisible disabilities from India and
-              internationally shared their workplace experiences—highlighting challenges around disclosure, accommodation, bias, and career
+              internationally shared their workplace experiences highlighting challenges around disclosure, accommodation, bias, and career
               progression.
             </p>
 
             <div className="mt-10">
-              <p className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase mb-5">Narratives</p>
+              <p className="work-kicker mb-5">Narratives</p>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <article className="rounded-2xl border border-border/70 bg-background/60 p-6 shadow-[0_10px_18px_rgba(0,0,0,0.08),0_3px_0_rgba(0,0,0,0.08)]">
                   <div className="flex flex-col sm:flex-row gap-5">
@@ -300,7 +312,7 @@ const Work = () => {
                       <h4 className="text-lg font-bold text-foreground">Mohamin Sahil, Person with Stammer / stutter</h4>
                       <p className="mt-3 text-foreground/85 leading-relaxed text-sm sm:text-base">
                         “My stammer, an invisible disability, has had a significant impact on my experience in the workplace… Every time I walk
-                        into a meeting or an interview, I’m not just thinking about what I have to say—I’m thinking about how I’m going to say
+                        into a meeting or an interview, I’m not just thinking about what I have to say I’m thinking about how I’m going to say
                         it… The stress of trying to appear ‘flawless’ often makes my stammer worse, creating a cycle of self-doubt and added
                         pressure that can be mentally exhausting.”
                       </p>
@@ -418,7 +430,7 @@ const Work = () => {
             </p>
 
             <div className="mt-10">
-              <p className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase mb-5">Narratives</p>
+              <p className="work-kicker mb-5">Narratives</p>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <article className="rounded-2xl border border-border/70 bg-background/60 p-6 shadow-[0_10px_18px_rgba(0,0,0,0.08),0_3px_0_rgba(0,0,0,0.08)]">
@@ -432,7 +444,7 @@ const Work = () => {
                       </h4>
                       <p className="mt-3 text-foreground/85 leading-relaxed text-sm sm:text-base">
                         “Disability pride means owning my experience without apology… adaptation is not a weakness – it’s a form of wisdom…
-                        I’m still waiting for a shift from performative inclusion to genuine accessibility — where systems don’t just acknowledge
+                        I’m still waiting for a shift from performative inclusion to genuine accessibility   where systems don’t just acknowledge
                         difference, but plan for it from the start…”
                       </p>
                     </div>
@@ -475,25 +487,7 @@ const Work = () => {
         </div>
       </section>
 
-      {/* Other work areas (placeholders for now) */}
-      <section className="py-16 md:py-20 bg-muted/20 border-t border-border/60">
-        <div className="container-section max-w-6xl space-y-12">
-          {[
-            { id: "workplace-inclusion-employer-engagement", title: "Workplace Inclusion & Employer Engagement" },
-            { id: "accessible-ielts-persons-with-disabilities", title: "Accessible IELTS for Persons with Disabilities" },
-            { id: "capacity-building-academic-partnerships", title: "Capacity Building & Academic Partnerships" },
-            { id: "experiential-advocacy-public-engagement", title: "Experiential Advocacy & Public Engagement" },
-            { id: "creative-advocacy", title: "Creative Advocacy" },
-          ].map((area) => (
-            <article key={area.id} id={area.id} className="scroll-mt-28">
-              <h2 className="text-2xl sm:text-3xl text-foreground mb-2 normal-case font-bold">{area.title}</h2>
-              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-3xl">
-                Highlights from this focus area appear across our campaigns and programmes below.
-              </p>
-            </article>
-          ))}
-        </div>
-      </section>
+     
     </div>
   );
 };

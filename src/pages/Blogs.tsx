@@ -35,19 +35,23 @@ const Blogs = () => {
 
       {/* Narrative */}
       <section className="py-16 md:py-20">
-        <div className="container-section max-w-3xl">
-          <div className="rounded-3xl border border-border/70 bg-card p-7 sm:p-10 shadow-sm space-y-6 text-foreground/85 text-base sm:text-lg leading-relaxed">
-            <p className="text-foreground font-semibold text-lg sm:text-xl leading-snug">
-              Your story matters—even if it feels incomplete, messy, or hard to put into words.
-            </p>
-            <p>
-              At Believe in the Invisible, we are creating a space for real, honest voices around invisible disabilities.
-            </p>
-            <p>
-              Whether you are living with a condition, supporting someone, or simply navigating your own journey, we
-              would love to hear from you.
-            </p>
-            <p className="text-foreground font-medium">You don&apos;t have to be a writer. You just have to be real.</p>
+        <div className="container-section">
+          <div className="w-full max-w-6xl lg:max-w-7xl text-left">
+            <div className="rounded-3xl border border-border/70 bg-card px-6 py-8 sm:px-8 sm:py-10 md:px-10 md:py-11 shadow-sm space-y-7 text-foreground leading-relaxed text-lg sm:text-xl md:text-[1.35rem]">
+              <p className="text-foreground font-semibold text-xl sm:text-2xl md:text-[1.65rem] leading-snug tracking-tight">
+                Your story matters even if it feels incomplete, messy, or hard to put into words.
+              </p>
+              <p className="text-foreground/95">
+                At Believe in the Invisible, we are creating a space for real, honest voices around invisible disabilities.
+              </p>
+              <p className="text-foreground/95">
+                Whether you are living with a condition, supporting someone, or simply navigating your own journey, we
+                would love to hear from you.
+              </p>
+              <p className="text-foreground font-semibold text-xl sm:text-2xl md:text-[1.45rem] leading-snug">
+                You don&apos;t have to be a writer. You just have to be real.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -55,16 +59,16 @@ const Blogs = () => {
       {/* CTA */}
       <section className="pb-20 md:pb-28">
         <div className="container-section max-w-4xl">
-          <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-gradient-to-br from-primary/20 via-background to-secondary/25 p-8 sm:p-10 md:p-12">
+          <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-gradient-to-br from-primary/20 via-background to-secondary/25 px-5 py-8 sm:px-6 sm:py-10 md:px-8 md:py-11">
             <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-primary/30 blur-3xl" aria-hidden />
             <div className="absolute -bottom-28 -left-28 h-72 w-72 rounded-full bg-secondary/35 blur-3xl" aria-hidden />
 
-            <div className="relative space-y-6">
-              <p className="text-foreground/90 text-base sm:text-lg leading-relaxed">
+            <div className="relative space-y-6 max-w-3xl">
+              <p className="text-foreground/95 text-lg sm:text-xl md:text-[1.35rem] leading-relaxed">
                 Write to us at{" "}
                 <a
                   href={`mailto:${CONNECT_EMAIL}?subject=Story%20for%20Voices%20of%20the%20Invisible`}
-                  className="font-semibold text-primary underline underline-offset-2 hover:opacity-90 break-all sm:break-normal"
+                  className="font-semibold text-blue-950 underline decoration-blue-950/45 decoration-2 underline-offset-[3px] hover:text-blue-900 break-all sm:break-normal"
                 >
                   {CONNECT_EMAIL}
                 </a>{" "}
@@ -73,7 +77,7 @@ const Blogs = () => {
                   href={STORY_FORM}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-primary underline underline-offset-2 hover:opacity-90"
+                  className="font-semibold text-blue-950 underline decoration-blue-950/45 decoration-2 underline-offset-[3px] hover:text-blue-900"
                 >
                   share your story with us here
                 </a>

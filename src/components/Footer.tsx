@@ -149,8 +149,22 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-charcoal-foreground/10 mt-14 pt-8 text-left text-sm text-charcoal-foreground/85">
-          © {new Date().getFullYear()} Believe In The Invisible. All rights reserved.
+        <div className="border-t border-charcoal-foreground/10 mt-14 pt-8 flex flex-col items-center text-center gap-4">
+          <p className="text-base sm:text-lg text-charcoal-foreground/80 leading-relaxed max-w-2xl">
+            Designed and built by{" "}
+            <a
+              href="https://commsforacause.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary font-semibold hover:text-primary/90 hover:underline underline-offset-2 transition-colors"
+            >
+              C4AC Labs
+            </a>
+            .
+          </p>
+          <p className="text-sm sm:text-base text-charcoal-foreground/75">
+            © {new Date().getFullYear()} Believe In The Invisible. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

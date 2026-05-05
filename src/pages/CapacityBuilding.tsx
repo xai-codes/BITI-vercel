@@ -1,6 +1,24 @@
 import { ArrowRight, GraduationCap, Handshake, Sparkles, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
+const enableItems = [
+  {
+    title: "Cross-disability sensitisation",
+    icon: <Users className="h-5 w-5" aria-hidden />,
+    body: "Shared language, inclusive framing, and stronger movement-building across communities.",
+  },
+  {
+    title: "Storytelling for advocacy",
+    icon: <Handshake className="h-5 w-5" aria-hidden />,
+    body: "Turning lived experience into compelling, policy-oriented narratives.",
+  },
+  {
+    title: "Youth & academic engagement",
+    icon: <GraduationCap className="h-5 w-5" aria-hidden />,
+    body: "Practical learning that connects management skills to real-world disability inclusion work.",
+  },
+] as const;
+
 const CapacityBuilding = () => {
   const ncpedpPost =
     "https://www.linkedin.com/posts/ncpedp_ncpedp-javed-abidi-fellowship-workshop-day-activity-7313093372330553344-wB3u?utm_source=share&utm_medium=member_desktop&rcm=ACoAABCijfkB_HVHqhGc_k8BnCC0LBkBI-NCKbM";
@@ -21,10 +39,8 @@ const CapacityBuilding = () => {
         <div className="container-section relative z-10 py-20 md:py-24">
           <div className="max-w-5xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/35 bg-white/5 px-4 py-2 backdrop-blur-sm">
-              <Sparkles className="h-4 w-4 text-primary" aria-hidden />
-              <span className="text-primary font-display text-sm font-semibold tracking-[0.24em] uppercase drop-shadow-[0_1px_0_rgba(0,0,0,0.35)]">
-                Our work
-              </span>
+              <Sparkles className="h-4 w-4 text-amber-200" aria-hidden />
+              <span className="work-kicker-hero">Our work</span>
             </div>
             <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-charcoal-foreground font-bold tracking-tight">
               Capacity Building & Academic Partnerships
@@ -51,114 +67,133 @@ const CapacityBuilding = () => {
         </div>
       </section>
 
-      {/* Content */}
+      {/* Main stories   wider column */}
       <section className="py-16 md:py-20">
-        <div className="container-section max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            <div className="lg:col-span-7 space-y-8">
-              <div className="rounded-3xl border border-border/70 bg-card p-7 sm:p-9 shadow-sm">
-                <h2 className="text-2xl sm:text-3xl text-foreground font-bold">
-                  National Centre for Promotion of Employment for Disabled People (NCPEDP)
-                </h2>
-                <p className="mt-4 text-foreground/85 text-base sm:text-lg leading-relaxed">
-                  Believe in the Invisible (BITI) conducted a hybrid capacity-building training for the Javed Abidi Fellowship (Cohort 2.0) at
-                  NCPEDP. The session focused on cross-disability sensitisation and digital storytelling for advocacy, equipping emerging
-                  disability leaders with tools to frame lived experiences into compelling, policy-oriented narratives.
-                </p>
-                <p className="mt-4 text-foreground/85 text-base sm:text-lg leading-relaxed">
-                  The workshop strengthened fellows’ understanding of inclusive language, intersectionality, and strategic communication within
-                  the broader disability movement.
-                </p>
-
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <a
-                    href={ncpedpPost}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-xl border border-border/80 bg-background/70 px-5 py-3 font-display font-semibold tracking-wide hover:bg-background transition-colors"
-                  >
-                    View LinkedIn post
-                  </a>
-                </div>
-              </div>
-
-              <div className="rounded-3xl border border-border/70 bg-card p-7 sm:p-9 shadow-sm">
-                <h2 className="text-2xl sm:text-3xl text-foreground font-bold">Fortune Institute of International Business (FIIB)</h2>
-                <p className="mt-4 text-foreground/85 text-base sm:text-lg leading-relaxed">
-                  Through a partnership with the Fortune Institute of International Business (FIIB), BITI hosted postgraduate students under
-                  the Social Internship Program (SIP). Over 15 days, interns engaged in field visits, in-person strategy sessions, and virtual
-                  training on the RPwD Act, while working across BITI’s three verticals—Research, Operations, and Social Media.
-                </p>
-                <p className="mt-4 text-foreground/85 text-base sm:text-lg leading-relaxed">
-                  This collaboration strengthened youth engagement in disability advocacy and enabled students to apply management skills to
-                  meaningful social impact work.
-                </p>
-              </div>
+        <div className="container-section">
+          <div className="mx-auto max-w-6xl xl:max-w-7xl space-y-8">
+            <div className="rounded-3xl border border-border/70 bg-card p-7 sm:p-9 md:p-10 shadow-sm">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl text-foreground font-bold">
+                National Centre for Promotion of Employment for Disabled People (NCPEDP)
+              </h2>
+              <p className="mt-4 text-foreground/85 text-base sm:text-lg md:text-xl leading-relaxed">
+                Believe in the Invisible (BITI) conducted a hybrid capacity-building training for the{" "}
+                <a
+                  href={ncpedpPost}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-blue-950 underline underline-offset-2 hover:opacity-90"
+                >
+                  Javed Abidi Fellowship (Cohort 2.0)
+                </a>{" "}
+                at NCPEDP. The session focused on cross-disability sensitisation and digital storytelling for advocacy, equipping emerging
+                disability leaders with tools to frame lived experiences into compelling, policy-oriented narratives.
+              </p>
+              <p className="mt-4 text-foreground/85 text-base sm:text-lg md:text-xl leading-relaxed">
+                The workshop strengthened fellows’ understanding of inclusive language, intersectionality, and strategic communication within
+                the broader disability movement.
+              </p>
             </div>
 
-            <div className="lg:col-span-5">
-              <div className="rounded-3xl border border-border/70 bg-card p-7 sm:p-8 shadow-sm">
-                <h3 className="text-xl sm:text-2xl text-foreground font-bold mb-6">What this enables</h3>
-                <div className="space-y-4">
-                  {[
-                    {
-                      title: "Cross-disability sensitisation",
-                      icon: <Users className="h-5 w-5" aria-hidden />,
-                      body: "Shared language, inclusive framing, and stronger movement-building across communities.",
-                    },
-                    {
-                      title: "Storytelling for advocacy",
-                      icon: <Handshake className="h-5 w-5" aria-hidden />,
-                      body: "Turning lived experience into compelling, policy-oriented narratives.",
-                    },
-                    {
-                      title: "Youth & academic engagement",
-                      icon: <GraduationCap className="h-5 w-5" aria-hidden />,
-                      body: "Practical learning that connects management skills to real-world disability inclusion work.",
-                    },
-                  ].map((item) => (
-                    <div
-                      key={item.title}
-                      className="rounded-2xl border border-border/70 bg-background/60 p-6 shadow-[0_10px_18px_rgba(0,0,0,0.06),0_3px_0_rgba(0,0,0,0.06)]"
-                    >
-                      <div className="flex items-start gap-4">
-                        <div className="w-11 h-11 rounded-xl bg-primary/15 text-primary flex items-center justify-center shrink-0">
-                          {item.icon}
-                        </div>
-                        <div className="min-w-0">
-                          <p className="text-foreground font-bold">{item.title}</p>
-                          <p className="mt-2 text-foreground/80 leading-relaxed text-sm sm:text-base">{item.body}</p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+            <div className="rounded-3xl border border-border/70 bg-card p-7 sm:p-9 md:p-10 shadow-sm">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl text-foreground font-bold">
+                Fortune Institute of International Business (FIIB)
+              </h2>
+              <p className="mt-4 text-foreground/85 text-base sm:text-lg md:text-xl leading-relaxed">
+                Through a partnership with the Fortune Institute of International Business (FIIB), BITI hosted postgraduate students under
+                the Social Internship Program (SIP). Over 15 days, interns engaged in field visits, in-person strategy sessions, and virtual
+                training on the RPwD Act, while working across BITI’s three verticals Research, Operations, and Social Media.
+              </p>
+              <p className="mt-4 text-foreground/85 text-base sm:text-lg md:text-xl leading-relaxed">
+                This collaboration strengthened youth engagement in disability advocacy and enabled students to apply management skills to
+                meaningful social impact work.
+              </p>
 
-                <div className="mt-7 rounded-2xl border border-border/70 bg-muted/30 p-6">
-                  <p className="text-foreground font-semibold">Interested in a training or partnership?</p>
-                  <p className="mt-2 text-foreground/75 leading-relaxed">
-                    Tell us your context and goals—we’ll tailor a capacity-building engagement.
-                  </p>
-                  <div className="mt-4">
-                    <Link
-                      to="/contact"
-                      className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-display font-semibold tracking-wide hover:opacity-90 transition-opacity"
-                    >
-                      Contact BITI <ArrowRight size={18} />
-                    </Link>
-                  </div>
-                </div>
-              </div>
+              <figure className="mt-8 rounded-2xl overflow-hidden border border-border/70 bg-background/60 shadow-[0_10px_18px_rgba(0,0,0,0.08),0_3px_0_rgba(0,0,0,0.08)]">
+                <img
+                  src={bigImage}
+                  alt="FIIB Interns with BITI's team on the field visit at ASTHA"
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+                <figcaption className="px-5 py-5 sm:py-6 text-center text-base sm:text-lg md:text-xl font-semibold text-foreground leading-snug border-t border-border/60 bg-card/80">
+                  FIIB Interns with BITI&apos;s team on the field visit at ASTHA
+                </figcaption>
+              </figure>
+            </div>
+
+            <div className="rounded-3xl border border-border/70 bg-card p-7 sm:p-9 md:p-10 shadow-sm">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl text-foreground font-bold">The Quantum Hub (TQH)</h2>
+              <h3 className="mt-4 text-lg sm:text-xl md:text-2xl text-foreground font-semibold leading-snug">
+                A session for the TQH fellows on Mapping Invisible Disability Across Social Worlds
+              </h3>
+              <p className="mt-4 text-foreground/85 text-base sm:text-lg md:text-xl leading-relaxed">
+                This participatory session explored invisible disability through a critical lens, examining how visibility is shaped by
+                systems of power, policy, and social recognition. Moving beyond definitions, it engaged participants in reflecting on who gets
+                counted, who is excluded, and how invisibility is produced across intersections of caste, class, gender, and geography.
+                Through interactive discussions and case-based analysis of frameworks such as the UDID system, Census data, and the RPwD Act,
+                the session foregrounded the lived and structural realities of invisibilized conditions.
+              </p>
+              <p className="mt-4 text-foreground/85 text-base sm:text-lg md:text-xl leading-relaxed">
+                Co-facilitated by Aarti Batra, Co-founder, Believe in the Invisible, and Harshita Kumari, Analyst at TQH.
+              </p>
+
+              <figure className="mt-8 rounded-2xl overflow-hidden border border-border/70 bg-background/60 shadow-[0_10px_18px_rgba(0,0,0,0.08),0_3px_0_rgba(0,0,0,0.08)]">
+                <img
+                  src="/our-work/Capacity%20Building/The-Quantum-Hub.jpg"
+                  alt="The Quantum Hub fellows session with Believe in the Invisible"
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+              </figure>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="mt-10 rounded-3xl overflow-hidden border border-border/70 bg-background/60 shadow-[0_14px_28px_rgba(0,0,0,0.10),0_4px_0_rgba(0,0,0,0.10)]">
-            <img
-              src={bigImage}
-              alt="Capacity building and academic partnerships"
-              className="w-full h-auto object-cover"
-              loading="lazy"
-            />
+      {/* What this enables + partnership CTA */}
+      <section className="py-16 md:py-24 border-t border-border/60 bg-muted/20">
+        <div className="container-section max-w-6xl">
+          <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-gradient-to-br from-primary/20 via-background to-secondary/25 p-9 sm:p-12 md:p-14">
+            <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-primary/30 blur-3xl" aria-hidden />
+            <div className="pointer-events-none absolute -bottom-28 -left-28 h-72 w-72 rounded-full bg-secondary/35 blur-3xl" aria-hidden />
+
+            <div className="relative">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl text-foreground font-bold tracking-tight">What this enables</h2>
+
+              <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+                {enableItems.map((item) => (
+                  <div
+                    key={item.title}
+                    className="rounded-2xl border border-border/70 bg-background/70 backdrop-blur-sm p-6 shadow-sm"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-11 h-11 rounded-xl bg-primary/15 text-primary flex items-center justify-center shrink-0">
+                        {item.icon}
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-foreground font-bold text-base sm:text-lg">{item.title}</p>
+                        <p className="mt-2 text-foreground/80 leading-relaxed text-sm sm:text-base">{item.body}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-10 md:mt-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 border-t border-border/50 pt-10">
+                <div className="max-w-2xl">
+                  <p className="text-xl sm:text-2xl text-foreground font-bold">Interested in a training or partnership?</p>
+                  <p className="mt-3 text-foreground/85 text-base sm:text-lg leading-relaxed">
+                    Tell us your context and goals we’ll tailor a capacity-building engagement.
+                  </p>
+                </div>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center gap-2 shrink-0 bg-primary text-primary-foreground px-8 py-4 rounded-xl font-display text-base font-semibold tracking-wide hover:opacity-90 transition-opacity shadow-lg shadow-primary/20 w-full sm:w-auto"
+                >
+                  Contact BITI <ArrowRight size={18} />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -167,4 +202,3 @@ const CapacityBuilding = () => {
 };
 
 export default CapacityBuilding;
-
